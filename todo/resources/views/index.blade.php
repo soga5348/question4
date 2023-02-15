@@ -311,7 +311,7 @@
               {!! $errors->first('content','<small >:message</small>') !!}
                 {!! Form::open(['class' => 'flex between mb-30']) !!}
         {!! Form::text('content',null,['class' => 'input-add'],[$errors->first('content','is_invalid')]) !!}
-          <input class="button-add" type="submit" value="追加" />
+          <input class="button-add" type="submit"  value="追加"/>
          {!! Form::close() !!}
         <table>
           <tr>
@@ -327,18 +327,19 @@
             <td>
               {!! $todo->updated_at !!}
             </td>
-            {!! Form::open(['url' => route('update',$todo)]) !!}  {{--フォームタグの中のurl=>にて語尾にupdateと$todoを付け足していると思われる。→それによってupdate関数を呼び出している？---}}
+            {{--フォームファザードでの記述--}}
+             {{--フォームタグの中のurl=>にて語尾にupdateと$todoを付け足している。→それによってupdate関数を呼び出している---}}
+            {!! Form::open(['url' => route('update',$todo)]) !!} 
               
              <td>
-                
-            {!! Form::text('content',$todo->content,['class' => 'input-update']) !!}
+              {!! Form::text('content_update',$todo->content,['class' => 'input-update']) !!} {{--新規作成の方のid属性と同じにならないよう気をつけよう、フォームハザードの仕様をしっかりと確認しよう--}}
               </td>
               <td>
                 <button class="button-update">更新</button>
               </td>
             {!! Form::close() !!}
             <td>
-                <button type="button" class="button-delete" onclick="location.href='{{ route('delete',$todo) }}'">削除</button>  {{--上記のフォームタグのやり方と同じでurlにてdeleteと$todoを付け足しているように思われる--}}
+                <button type="button" class="button-delete" onclick="location.href='{{ route('delete',$todo) }}'">削除</button>  {{--上記のフォームタグのやり方と同じでurlにてdeleteと$todoを付け足している--}}
               
             </td>
           </tr>

@@ -13,7 +13,7 @@ class TodoController extends Controller
         return view('index',compact('todos'));
     }
     public function store(TodoRequest $request){
-
+        
         $todo = new Todo();
         $todo->content = $request->content;
         $todo->save();
@@ -21,7 +21,7 @@ class TodoController extends Controller
     }
     public function update(TodoRequest $request, Todo $todo){
         
-        $todo->content = $request->content;
+        $todo->content = $request->content_update;
         $todo->save();
         return redirect()->route('index');
     }
