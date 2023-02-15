@@ -308,11 +308,10 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
             <div class="todo">
-              {!! $errors->first('content','<small >:message</small>') !!}
-                {!! Form::open(['class' => 'flex between mb-30']) !!}
-        {!! Form::text('content',null,['class' => 'input-add'],[$errors->first('content','is_invalid')]) !!}
+        <form action="/index" method="post" class="flex between mb-30">
+          <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">          <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
-         {!! Form::close() !!}
+        </form>
         <table>
           <tr>
             <th>作成日</th>
@@ -320,32 +319,60 @@
             <th>更新</th>
             <th>削除</th>
           </tr>
-          
-@foreach($todos as $todo)
-
-            <tr>
+                    <tr>
             <td>
-              {!! $todo->updated_at !!}
+              2023-02-12 07:17:09
             </td>
-            {!! Form::open(['url' => route('update',$todo)]) !!}  {{--フォームタグの中のurl=>にて語尾にupdateと$todoを付け足していると思われる。→それによってupdate関数を呼び出している？---}}
-              
-             <td>
-                
-            {!! Form::text('content',$todo->content,['class' => 'input-update']) !!}
+            <form action="http://54.65.181.123/todo-introduction/todo/update?id=256" method="post">
+              <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">              <td>
+                <input type="text" class="input-update" value="aあああ" name="content" />
               </td>
               <td>
                 <button class="button-update">更新</button>
               </td>
-            {!! Form::close() !!}
+            </form>
             <td>
-                <button type="button" class="button-delete" onclick="location.href='{{ route('delete',$todo) }}'">削除</button>  {{--上記のフォームタグのやり方と同じでurlにてdeleteと$todoを付け足しているように思われる--}}
-              
+              <form action="http://54.65.181.123/todo-introduction/todo/delete?id=256" method="post">
+                <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">                <button class="button-delete">削除</button>
+              </form>
             </td>
           </tr>
-          
-@endforeach
-
-          
+                    <tr>
+            <td>
+              2023-02-12 08:39:08
+            </td>
+            <form action="http://54.65.181.123/todo-introduction/todo/update?id=257" method="post">
+              <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">              <td>
+                <input type="text" class="input-update" value="aaaa" name="content" />
+              </td>
+              <td>
+                <button class="button-update">更新</button>
+              </td>
+            </form>
+            <td>
+              <form action="http://54.65.181.123/todo-introduction/todo/delete?id=257" method="post">
+                <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">                <button class="button-delete">削除</button>
+              </form>
+            </td>
+          </tr>
+                    <tr>
+            <td>
+              2023-02-12 09:11:30
+            </td>
+            <form action="http://54.65.181.123/todo-introduction/todo/update?id=258" method="post">
+              <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">              <td>
+                <input type="text" class="input-update" value="aaa" name="content" />
+              </td>
+              <td>
+                <button class="button-update">更新</button>
+              </td>
+            </form>
+            <td>
+              <form action="http://54.65.181.123/todo-introduction/todo/delete?id=258" method="post">
+                <input type="hidden" name="_token" value="T1Im2toqoCCk975RNWd1hoJbeyv1lMxGL31pxeQp">                <button class="button-delete">削除</button>
+              </form>
+            </td>
+          </tr>
                   </table>
       </div>
     </div>
