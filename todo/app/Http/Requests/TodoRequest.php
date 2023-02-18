@@ -5,6 +5,11 @@ use App\Http\Requests\TodoRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TodoRequest extends FormRequest
+
+/**FormRequestは、Controller内のメソッドごとにバリデーションルールを設けることはできない
+ * 異なるバリデーションルールを作成したい場合は、別ファイルに異なるFormRequestを作成しましょう。
+ * リクエストを作成した場合は、コントローラーへの反映も必要である
+ */
 {
     /**
      * Determine if the user is authorized to make this request.

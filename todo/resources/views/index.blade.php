@@ -308,7 +308,7 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
             <div class="todo">
-              {!! $errors->first('content','<small >:message</small>') !!}
+              {!! $errors->first('content','<small >:message</small>') !!} {!! $errors->first('content_update','<small >:message</small>') !!}
                 {!! Form::open(['class' => 'flex between mb-30']) !!}
         {!! Form::text('content',null,['class' => 'input-add'],[$errors->first('content','is_invalid')]) !!}
           <input class="button-add" type="submit"  value="追加"/>
@@ -329,7 +329,7 @@
             </td>
             {{--フォームファザードでの記述--}}
              {{--フォームタグの中のurl=>にて語尾にupdateと$todoを付け足している。→それによってupdate関数を呼び出している---}}
-             {!! $errors->first('content_update','<small >:message</small>') !!}
+             
             {!! Form::open(['url' => route('update',$todo)]) !!} 
               
              <td>
