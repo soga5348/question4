@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/index',[TodoController::class,'index'])->name('index');
-Route::post('/index',[TodoController::class, 'store']);
-Route::post('index/update/{todo}',[TodoController::class, 'update'])->name('update');
-Route::get('/index/delete/{todo}',[TodoController::class ,'delete'])->name('delete');
+Route::get('/',[TodoController::class,'index'])->name('index');
+Route::post('/',[TodoController::class, 'store']);
+Route::post('/update/{todo}',[TodoController::class, 'update'])->name('update');
+Route::get('/delete/{todo}',[TodoController::class ,'delete'])->name('delete');
 
 
