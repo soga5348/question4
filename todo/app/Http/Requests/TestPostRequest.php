@@ -27,4 +27,12 @@ class TestPostRequest extends FormRequest
             //
         ];
     }
+
+    public function messages()
+    {
+        return[
+            'content_update.required' => '・タスクを入力してください',
+            'content_update.max' => '・タスクは20文字以内で入力してください。',
+        ];
+        }
 }

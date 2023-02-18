@@ -329,10 +329,11 @@
             </td>
             {{--フォームファザードでの記述--}}
              {{--フォームタグの中のurl=>にて語尾にupdateと$todoを付け足している。→それによってupdate関数を呼び出している---}}
+             {!! $errors->first('content_update','<small >:message</small>') !!}
             {!! Form::open(['url' => route('update',$todo)]) !!} 
               
              <td>
-              {!! Form::text('content_update',$todo->content,['class' => 'input-update']) !!} {{--新規作成の方のid属性と同じにならないよう気をつけよう、フォームハザードの仕様をしっかりと確認しよう--}}
+              {!! Form::text('content_update',$todo->content,['class' => 'input-update'],[$errors->first('content_update','is_invalid')]) !!} {{--新規作成の方のid属性と同じにならないよう気をつけよう、フォームハザードの仕様をしっかりと確認しよう--}}
               </td>
               <td>
                 <button class="button-update">更新</button>

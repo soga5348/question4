@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use App\Http\Requests\TestPostRequest;
 
 class TodoController extends Controller
 {
@@ -19,7 +20,7 @@ class TodoController extends Controller
         $todo->save();
         return redirect()->route('index');
     }
-    public function update(TodoRequest $request, Todo $todo){
+    public function update(TestPostRequest $request, Todo $todo){
         
         $todo->content = $request->content_update;
         $todo->save();
